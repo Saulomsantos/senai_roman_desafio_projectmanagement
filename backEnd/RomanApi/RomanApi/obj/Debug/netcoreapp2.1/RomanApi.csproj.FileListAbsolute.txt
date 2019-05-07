@@ -1,0 +1,14 @@
+C:\Users\45346351841\Projetos\Roman\API\RomanApi\RomanApi\bin\Debug\netcoreapp2.1\RomanApi.deps.json
+C:\Users\45346351841\Projetos\Roman\API\RomanApi\RomanApi\bin\Debug\netcoreapp2.1\RomanApi.runtimeconfig.json
+C:\Users\45346351841\Projetos\Roman\API\RomanApi\RomanApi\bin\Debug\netcoreapp2.1\RomanApi.runtimeconfig.dev.json
+C:\Users\45346351841\Projetos\Roman\API\RomanApi\RomanApi\bin\Debug\netcoreapp2.1\RomanApi.dll
+C:\Users\45346351841\Projetos\Roman\API\RomanApi\RomanApi\obj\Debug\netcoreapp2.1\RomanApi.csprojAssemblyReference.cache
+C:\Users\45346351841\Projetos\Roman\API\RomanApi\RomanApi\obj\Debug\netcoreapp2.1\RomanApi.csproj.CoreCompileInputs.cache
+C:\Users\45346351841\Projetos\Roman\API\RomanApi\RomanApi\obj\Debug\netcoreapp2.1\RomanApi.RazorAssemblyInfo.cache
+C:\Users\45346351841\Projetos\Roman\API\RomanApi\RomanApi\obj\Debug\netcoreapp2.1\RomanApi.RazorAssemblyInfo.cs
+C:\Users\45346351841\Projetos\Roman\API\RomanApi\RomanApi\obj\Debug\netcoreapp2.1\RomanApi.AssemblyInfoInputs.cache
+C:\Users\45346351841\Projetos\Roman\API\RomanApi\RomanApi\obj\Debug\netcoreapp2.1\RomanApi.AssemblyInfo.cs
+C:\Users\45346351841\Projetos\Roman\API\RomanApi\RomanApi\obj\Debug\netcoreapp2.1\RomanApi.RazorTargetAssemblyInfo.cache
+C:\Users\45346351841\Projetos\Roman\API\RomanApi\RomanApi\bin\Debug\netcoreapp2.1\RomanApi.pdb
+C:\Users\45346351841\Projetos\Roman\API\RomanApi\RomanApi\obj\Debug\netcoreapp2.1\RomanApi.dll
+C:\Users\45346351841\Projetos\Roman\API\RomanApi\RomanApi\obj\Debug\netcoreapp2.1\RomanApi.pdb
