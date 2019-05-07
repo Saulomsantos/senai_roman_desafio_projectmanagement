@@ -1,0 +1,4 @@
+Banco de dados
+	Servidor: romanbd.database.windows.net
+	Logon de administrador: roman-admin
+	Senha: Batata123
