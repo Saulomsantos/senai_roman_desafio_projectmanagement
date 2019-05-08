@@ -9,6 +9,7 @@ namespace RomanApi.Interfaces
     interface IProjetoRepository
     {
         void CadastrarProjeto(Projetos projeto);
+        void CadastrarEquipe(Equipes equipe);
         void EditarProjeto(Projetos projeto);
         List<Projetos> ListarProjetos();
     }

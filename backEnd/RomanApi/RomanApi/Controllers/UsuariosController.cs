@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RomanApi.Domains;
+using RomanApi.Interfaces;
+using RomanApi.Repositorys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,15 +14,103 @@ namespace RomanApi.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
+        private IUsuarioRepository UsuarioRepository { get; set; }
 
-        [HttpGet]
-        public IActionResult Get()
+        public UsuariosController()
         {
-            using(RomanContext ctx = new RomanContext())
+            UsuarioRepository = new UsuarioRepository();
+        }
+
+        // Listar usuarios
+        [Route("todos")]
+        [HttpGet]
+        public IActionResult GetUsuarios()
+        {
+            try
             {
-                return Ok(ctx.Usuarios.ToList());
+                return Ok(UsuarioRepository.ListarTodosUsuarios());
+            }
+            catch (System.Exception ex)
+            {
+                throw(ex);
             }
         }
 
+        // Listar professores
+        [Route("professores")]
+        [HttpGet]
+        public IActionResult GetProfessores()
+        {
+            try
+            {
+                return Ok(UsuarioRepository.ListarProfessores());
+            }
+            catch (System.Exception ex)
+            {
+                throw(ex);
+            }
+        }
+
+        // Editar usuario
+        [HttpPut]
+        public IActionResult EditarUsuario(Usuarios usuario)
+        {
+            try
+            {
+                UsuarioRepository.Editarusuario(usuario);
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                throw(ex);
+            }
+        }
+
+        // Cadastrar usuario
+        [HttpPost]
+        public IActionResult CadastrarUsuario(Usuarios usuario)
+        {
+            try
+            {
+                UsuarioRepository.CadastrarUsuario(usuario);
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                throw(ex);
+            }
+        }
+
+        // Buscar email e senha
+        [Route("login")]
+        [HttpGet]
+        public IActionResult BuscarPorEmailSenha(string email, string senha)
+        {
+            try
+            {
+                //UsuarioRepository.BuscarPorEmailSenha(email, senha);
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                throw(ex);
+            }
+        }
+
+        // Cadastrar tipo usuario
+        [Route("tipo")]
+        [HttpPost]
+        public IActionResult CadastrarTipoUsuario(Tiposusuario tipo)
+        {
+            try
+            {
+                UsuarioRepository.CadastrarTipoUsuario(tipo);
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                throw(ex);
+            }
+        }
     }
 }

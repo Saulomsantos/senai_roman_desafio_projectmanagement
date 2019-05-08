@@ -11,22 +11,44 @@ namespace RomanApi.Repositorys
     {
         public void AtivarDesativarTema(Temas ativado)
         {
-            throw new NotImplementedException();
+            using (RomanContext ctx = new RomanContext())
+            {
+                Temas temaUpdate = ctx.Temas.Find(ativado.Id);
+                if (temaUpdate.Ativo == true)
+                {
+                    temaUpdate.Ativo = false;
+                }
+                else
+                {
+                    temaUpdate.Ativo = true;
+                }
+                ctx.SaveChanges();
+            }
         }
 
         public void CadastrarTema(Temas tema)
         {
-            throw new NotImplementedException();
+            using (RomanContext ctx = new RomanContext())
+            {
+                ctx.Temas.Add(tema);
+                ctx.SaveChanges();
+            }
         }
 
         public void EditarTema(Temas tema)
         {
-            throw new NotImplementedException();
+            using (RomanContext ctx = new RomanContext())
+            {
+
+            }
         }
 
         public List<Temas> listarTemas()
         {
-            throw new NotImplementedException();
+            using(RomanContext ctx = new RomanContext())
+            {
+                return ctx.Temas.ToList();
+            }
         }
     }
 }

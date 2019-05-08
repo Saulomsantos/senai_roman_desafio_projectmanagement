@@ -8,7 +8,7 @@ namespace RomanApi.Interfaces
 {
     interface IUsuarioRepository
     {
-        void Cadastrar(Tiposusuario tiposusuario);
+        void CadastrarTipoUsuario(Tiposusuario tiposusuario);
         void CadastrarEquipe(Equipes equipe);
         void CadastrarUsuario(Usuarios usuario);
         void Editarusuario(Usuarios usuario);

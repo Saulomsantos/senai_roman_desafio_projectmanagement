@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RomanApi.Domains;
+using RomanApi.Interfaces;
+using RomanApi.Repositorys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,12 @@ namespace RomanApi.Controllers
     public class ProjetosController : ControllerBase
     {
 
+        private IProjetoRepository ProjetoRepository { get; set; }
+
+        public ProjetosController()
+        {
+            ProjetoRepository = new ProjetoRepository();
+        }
 
         // Cadastrar projeto
         [HttpPost]
@@ -20,7 +28,24 @@ namespace RomanApi.Controllers
         {
             try
             {
-                return Ok(projeto);
+                ProjetoRepository.CadastrarProjeto(projeto);
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                throw(ex);
+            }
+        }
+
+        // Cadastrar equipe
+        [Route("equipe")]
+        [HttpPost]
+        public IActionResult CadastrarEquipe(Equipes equipe)
+        {
+            try
+            {
+                ProjetoRepository.CadastrarEquipe(equipe);
+                return Ok();
             }
             catch (System.Exception ex)
             {
@@ -34,7 +59,8 @@ namespace RomanApi.Controllers
         {
             try
             {
-                return Ok(projeto);
+                ProjetoRepository.EditarProjeto(projeto);
+                return Ok();
             }
             catch (System.Exception ex)
             {
@@ -48,7 +74,7 @@ namespace RomanApi.Controllers
         {
             try
             {
-                return Ok();
+                return Ok(ProjetoRepository.ListarProjetos());
             }
             catch (System.Exception ex)
             {

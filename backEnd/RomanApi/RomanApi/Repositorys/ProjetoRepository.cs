@@ -9,20 +9,42 @@ namespace RomanApi.Repositorys
 {
     public class ProjetoRepository : IProjetoRepository
     {
-        
+        public void CadastrarEquipe(Equipes equipe)
+        {
+            using (RomanContext ctx = new RomanContext())
+            {
+                ctx.Equipes.Add(equipe);
+                ctx.SaveChanges();
+            }
+        }
+
         public void CadastrarProjeto(Projetos projeto)
         {
-            throw new NotImplementedException();
+            using (RomanContext ctx = new RomanContext())
+            {
+                ctx.Projetos.Add(projeto);
+                ctx.SaveChanges();
+            }
         }
 
         public void EditarProjeto(Projetos projeto)
         {
-            throw new NotImplementedException();
+            using(RomanContext ctx = new RomanContext())
+            {
+                Projetos projetoUpdate = ctx.Projetos.Find(projeto.Id);
+                projetoUpdate.Nome = projeto.Nome;
+                projetoUpdate.Descricao = projeto.Descricao;
+                projetoUpdate.TemaId = projeto.TemaId;
+                ctx.SaveChanges();
+            }
         }
 
         public List<Projetos> ListarProjetos()
         {
-            throw new NotImplementedException();
+            using (RomanContext ctx = new RomanContext())
+            {
+                return ctx.Projetos.ToList();
+            }
         }
     }
 }

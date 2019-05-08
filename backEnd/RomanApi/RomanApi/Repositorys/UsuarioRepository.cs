@@ -11,12 +11,19 @@ namespace RomanApi.Repositorys
     {
         public Usuarios BuscarPorEmailSenha(string email, string senha)
         {
-            throw new NotImplementedException();
+            using (RomanContext ctx = new RomanContext())
+            {
+                return ctx.Usuarios.FirstOrDefault(x => x.Email == email && x.Senha == senha);
+            }
         }
 
-        public void Cadastrar(Tiposusuario tiposusuario)
+        public void CadastrarTipoUsuario(Tiposusuario tipo)
         {
-            throw new NotImplementedException();
+            using (RomanContext ctx = new RomanContext())
+            {
+                ctx.Tiposusuario.Add(tipo);
+                ctx.SaveChanges();
+            }
         }
 
         public void CadastrarEquipe(Equipes equipe)
@@ -26,22 +33,41 @@ namespace RomanApi.Repositorys
 
         public void CadastrarUsuario(Usuarios usuario)
         {
-            throw new NotImplementedException();
+            using(RomanContext ctx = new RomanContext())
+            {
+                ctx.Usuarios.Add(usuario);
+                ctx.SaveChanges();
+            }
         }
 
         public void Editarusuario(Usuarios usuario)
         {
-            throw new NotImplementedException();
+            using (RomanContext ctx = new RomanContext())
+            {
+                Usuarios usuarioUpdate = ctx.Usuarios.Find(usuario.Id);
+                usuarioUpdate.Nome = usuario.Nome;
+                usuarioUpdate.Email = usuario.Email;
+                usuarioUpdate.Senha = usuario.Senha;
+                usuarioUpdate.TipousuarioId = usuario.TipousuarioId;
+                usuarioUpdate.EquipeId = usuario.EquipeId;
+                ctx.SaveChanges();
+            }
         }
 
         public List<Usuarios> ListarProfessores()
         {
-            throw new NotImplementedException();
+            using (RomanContext ctx = new RomanContext())
+            {
+                return ctx.Usuarios.Where(u => u.TipousuarioId == 2).ToList();
+            }
         }
 
         public List<Usuarios> ListarTodosUsuarios()
         {
-            throw new NotImplementedException();
+            using(RomanContext ctx = new RomanContext())
+            {
+                return ctx.Usuarios.ToList();
+            }
         }
     }
 }

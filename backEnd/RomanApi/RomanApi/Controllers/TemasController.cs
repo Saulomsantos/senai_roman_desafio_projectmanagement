@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RomanApi.Domains;
+using RomanApi.Interfaces;
+using RomanApi.Repositorys;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +15,21 @@ namespace RomanApi.Controllers
     public class TemasController : ControllerBase
     {
 
+        private ITemaRepository TemaRepository {get; set;}
+
+        public TemasController()
+        {
+            TemaRepository = new TemaRepository();
+        }
+
+
         // Cadastrar tema
         [HttpPost]
         public IActionResult CadastrarTema(Temas tema)
         {
             try
             {
+                TemaRepository.CadastrarTema(tema);
                 return Ok();
             }
             catch (System.Exception ex)
@@ -28,12 +39,14 @@ namespace RomanApi.Controllers
         }
 
         // Ativar/Desativar tema
+        [Route("ativardesativar")]
         [HttpPost]
         public IActionResult AtivarDesativarProjeto(Temas ativado)
         {
             try
             {
-                return Ok(ativado);
+                TemaRepository.AtivarDesativarTema(ativado);
+                return Ok();
             }
             catch (System.Exception ex)
             {
@@ -61,7 +74,7 @@ namespace RomanApi.Controllers
         {
             try
             {
-                return Ok();
+                return Ok(TemaRepository.listarTemas());
             }
             catch (System.Exception ex)
             {
