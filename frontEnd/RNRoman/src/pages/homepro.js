@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
+import { StyleSheet, Text, View, } from 'react-native';
 
-import { Text, View, StyleSheet } from 'react-native';
-
-import { Icon, Button, Container, Header, Content, Left } from 'native-base';
-
-class HomePro extends Component {
+export default class HomePro extends Component {
     render() {
         return (
-            <Container>
-                <Content>
-                    <Text>Home PRO</Text>
-                </Content>
-            </Container>
+            <View style={styles.container}>
+                <Text>Home Pro</Text>
+            </View>
         )
     }
-}
+};
 
-export default HomePro;
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});

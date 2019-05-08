@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
+
 import { Text, View, StyleSheet } from 'react-native';
 
-class GerenciarProjetos extends Component {
+class CadastrarProjeto extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Gerenciar Projetos</Text>
+                <Text>Cadastrar Projeto</Text>
             </View>
         )
     }
 }
 
-export default GerenciarProjetos;
+export default CadastrarProjeto;
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create ({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
         justifyContent: 'center',
-    },
-});
+        alignItems: 'center',
+        backgroundColor: '#CCCCCC',
+      }
+});    

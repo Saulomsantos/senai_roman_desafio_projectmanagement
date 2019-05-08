@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
-
 import { Text, View, StyleSheet } from 'react-native';
-
-import { Icon, Button, Container, Header, Content, Left } from 'native-base';
 
 class HomeAdm extends Component {
     render() {
         return (
-            <Container>
-                <Content>
-                    <Text>Home ADM</Text>
-                </Content>
-            </Container>
+            <View style={styles.container}>
+                <Text>Home ADM</Text>
+            </View>
         )
     }
 }
 
 export default HomeAdm;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});

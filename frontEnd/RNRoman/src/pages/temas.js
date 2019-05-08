@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
+import { StyleSheet, Text, View, } from 'react-native';
 
-import { Text, View } from 'react-native';
-
-class Temas extends Component {
+export default class Temas extends Component {
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 <Text>Temas</Text>
             </View>
         )
     }
-}
+};
 
-export default Temas;
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
