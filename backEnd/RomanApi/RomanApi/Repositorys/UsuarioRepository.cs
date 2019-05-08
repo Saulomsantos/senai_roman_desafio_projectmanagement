@@ -1,19 +1,30 @@
-﻿using RomanApi.Domains;
+﻿using Microsoft.EntityFrameworkCore;
+using RomanApi.Domains;
 using RomanApi.Interfaces;
+using RomanApi.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace RomanApi.Repositorys
 {
     public class UsuarioRepository : IUsuarioRepository
     {
-        public Usuarios BuscarPorEmailSenha(string email, string senha)
+        public UsuarioViewModel BuscarPorEmailSenha(LoginViewModel login)
         {
             using (RomanContext ctx = new RomanContext())
             {
-                return ctx.Usuarios.FirstOrDefault(x => x.Email == email && x.Senha == senha);
+                Usuarios usuarioBuscado = ctx.Usuarios.FirstOrDefault(x => x.Email == login.Email && x.Senha == login.Senha);
+                UsuarioViewModel usuario = new UsuarioViewModel()
+                {
+                    Id = usuarioBuscado.Id,
+                    Email = usuarioBuscado.Email,
+                    Nome = usuarioBuscado.Nome,
+                    EquipeId = usuarioBuscado.EquipeId,
+                    TipousuarioId = usuarioBuscado.TipousuarioId
+                };
+
+                return usuario;
             }
         }
 
@@ -54,19 +65,84 @@ namespace RomanApi.Repositorys
             }
         }
 
-        public List<Usuarios> ListarProfessores()
+        public List<UsuarioViewModel> ListarProfessores()
         {
             using (RomanContext ctx = new RomanContext())
             {
-                return ctx.Usuarios.Where(u => u.TipousuarioId == 2).ToList();
+                List<Usuarios> usuariosBuscados = ctx.Usuarios
+                    .Include(usuario => usuario.Tipousuario)
+                    .Include(usuario => usuario.Equipe)
+                    .Where(u => u.TipousuarioId == 2)
+                    .ToList();
+
+                List<UsuarioViewModel> usuariosRetornados = new List<UsuarioViewModel>();
+
+                foreach (var item in usuariosBuscados)
+                {
+                    UsuarioViewModel usuario = new UsuarioViewModel();
+
+                    if (item.Equipe == null)
+                    {
+                        usuario.Equipe = null;
+                    }
+                    else
+                    {
+                        usuario.Equipe = item.Equipe.Equipe;
+                    };
+                    usuario.Id = item.Id;
+                    usuario.Email = item.Email;
+                    usuario.Nome = item.Nome;
+                    usuario.EquipeId = item.EquipeId;
+                    usuario.TipousuarioId = item.TipousuarioId;
+                    usuario.TipoUsuario = item.Tipousuario.TipoUsuario;
+
+                    usuariosRetornados.Add(usuario);
+
+                }
+
+                return usuariosRetornados;
+                //return usuariosBuscados;
+
             }
         }
 
-        public List<Usuarios> ListarTodosUsuarios()
+        public List<UsuarioViewModel> ListarTodosUsuarios()
         {
             using(RomanContext ctx = new RomanContext())
             {
-                return ctx.Usuarios.ToList();
+                List<Usuarios> usuariosBuscados = ctx.Usuarios
+                    .Include(usuario => usuario.Tipousuario)
+                    .Include(usuario => usuario.Equipe)
+                    .ToList();
+
+                List<UsuarioViewModel> usuariosRetornados = new List<UsuarioViewModel>();
+
+                foreach (var item in usuariosBuscados)
+                {
+                    UsuarioViewModel usuario = new UsuarioViewModel();
+
+                    if (item.Equipe == null)
+                    {
+                        usuario.Equipe = null;
+                    }
+                    else
+                    {
+                        usuario.Equipe = item.Equipe.Equipe;
+                    };
+                    usuario.Id = item.Id;
+                    usuario.Email = item.Email;
+                    usuario.Nome = item.Nome;
+                    usuario.EquipeId = item.EquipeId;
+                    usuario.TipousuarioId = item.TipousuarioId;
+                    usuario.TipoUsuario = item.Tipousuario.TipoUsuario;
+
+                    usuariosRetornados.Add(usuario);
+
+                }
+
+                return usuariosRetornados;
+                //return usuariosBuscados;
+
             }
         }
     }

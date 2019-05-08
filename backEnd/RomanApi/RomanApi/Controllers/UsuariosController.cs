@@ -81,22 +81,6 @@ namespace RomanApi.Controllers
             }
         }
 
-        // Buscar email e senha
-        [Route("login")]
-        [HttpGet]
-        public IActionResult BuscarPorEmailSenha(string email, string senha)
-        {
-            try
-            {
-                //UsuarioRepository.BuscarPorEmailSenha(email, senha);
-                return Ok();
-            }
-            catch (System.Exception ex)
-            {
-                throw(ex);
-            }
-        }
-
         // Cadastrar tipo usuario
         [Route("tipo")]
         [HttpPost]

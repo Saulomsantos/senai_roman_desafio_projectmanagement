@@ -1,4 +1,5 @@
 ﻿using RomanApi.Domains;
+using RomanApi.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,6 @@ namespace RomanApi.Interfaces
         void CadastrarProjeto(Projetos projeto);
         void CadastrarEquipe(Equipes equipe);
         void EditarProjeto(Projetos projeto);
-        List<Projetos> ListarProjetos();
+        List<ProjetoViewModel> ListarProjetos();
     }
 }

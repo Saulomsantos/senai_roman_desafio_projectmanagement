@@ -1,4 +1,5 @@
 ﻿using RomanApi.Domains;
+using RomanApi.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,8 @@ namespace RomanApi.Interfaces
         void CadastrarEquipe(Equipes equipe);
         void CadastrarUsuario(Usuarios usuario);
         void Editarusuario(Usuarios usuario);
-        Usuarios BuscarPorEmailSenha(string email, string senha);
-        List<Usuarios> ListarProfessores();
-        List<Usuarios> ListarTodosUsuarios();
+        UsuarioViewModel BuscarPorEmailSenha(LoginViewModel login);
+        List<UsuarioViewModel> ListarProfessores();
+        List<UsuarioViewModel> ListarTodosUsuarios();
     }
 }
