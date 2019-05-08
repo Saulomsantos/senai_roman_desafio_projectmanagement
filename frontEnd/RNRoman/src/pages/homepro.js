@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 
-import { Text, View } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
+
+import { Icon, Button, Container, Header, Content, Left } from 'native-base';
 
 class HomePro extends Component {
     render() {
         return (
-            <View>
-                <Text>HomePro</Text>
-            </View>
+            <Container>
+                <Content>
+                    <Text>Home PRO</Text>
+                </Content>
+            </Container>
         )
     }
 }
