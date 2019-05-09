@@ -57,7 +57,7 @@ namespace RomanApi.Controllers
                 //Retorna Ok com o Token
                 return Ok(new
                 {
-                    usuarioBuscado,
+                    //usuarioBuscado,
                     token = new JwtSecurityTokenHandler().WriteToken(token)
                 });
             }
