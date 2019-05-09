@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, View } from 'react-native';
 
 import { createSwitchNavigator, createAppContainer, createDrawerNavigator } from 'react-navigation';
 
@@ -28,11 +28,11 @@ class TelaInicial extends Component {
         return (
             <View style={styles.container}>
                 <Button 
-                    title='Ir para Home Adm' 
-                    onPress={() => this.props.navigation.navigate('Home Adm')}/>
+                    title='Ir para Home - Administrador' 
+                    onPress={() => this.props.navigation.navigate('Home - Administrador')}/>
                 <Button 
-                    title='Ir para Home Pro' 
-                    onPress={() => this.props.navigation.navigate('Home Pro')}/>
+                    title='Ir para Home - Professor' 
+                    onPress={() => this.props.navigation.navigate('Home - Professor')}/>
             </View>
         )
     }
@@ -40,7 +40,7 @@ class TelaInicial extends Component {
 
 const ProDrawerNavigator = createDrawerNavigator({
     'Tela Inicial': { screen: TelaInicial },
-    'Home Pro': HomePro,
+    'Home - Professor': HomePro,
     'Gerenciar Projetos': GerenciarProjetos,
     'Cadastrar Projeto': CadastrarProjeto,
     Temas: Temas
@@ -48,7 +48,7 @@ const ProDrawerNavigator = createDrawerNavigator({
 
 const AdmDrawerNavigator = createDrawerNavigator({
     'Tela Inicial': { screen: TelaInicial },
-    'Home Adm': HomeAdm,
+    'Home - Administrador': HomeAdm,
     'Gerenciar Tipo Usuario': GerenciarTipoUsuario,
     Equipes: Equipes,
     'Gerenciar Usuarios': GerenciarUsuarios,
@@ -57,8 +57,8 @@ const AdmDrawerNavigator = createDrawerNavigator({
 })
 
 const AppSwitchNavigator = createSwitchNavigator({
-    'Home Adm': { screen: AdmDrawerNavigator },
-    'Home Pro': { screen: ProDrawerNavigator }
+    'Home - Administrador': { screen: AdmDrawerNavigator },
+    'Home - Professor': { screen: ProDrawerNavigator }
 })
 
 const AppContainer = createAppContainer(AppSwitchNavigator);
