@@ -5,7 +5,8 @@ class HomeAdm extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Home ADM</Text>
+                <Text>Bem vindo, administrador.</Text> 
+                <Text>Deslize pela lateral esquerda para acessar o menu</Text>
             </View>
         )
     }

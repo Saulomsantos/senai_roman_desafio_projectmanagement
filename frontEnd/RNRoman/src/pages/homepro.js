@@ -5,7 +5,8 @@ export default class HomePro extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Home Pro</Text>
+                <Text>Bem vindo, professor.</Text> 
+                <Text>Deslize pela lateral esquerda para acessar o menu</Text>
             </View>
         )
     }
