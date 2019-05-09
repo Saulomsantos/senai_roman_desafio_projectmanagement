@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
+import { StyleSheet, Text, View, } from 'react-native';
 
-import { Text, View, StyleSheet } from 'react-native';
-
-class CadastrarProjeto extends Component {
+export default class CadastrarProjeto extends Component {
     render() {
         return (
             <View style={styles.container}>
@@ -10,15 +9,13 @@ class CadastrarProjeto extends Component {
             </View>
         )
     }
-}
+};
 
-export default CadastrarProjeto;
-
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        backgroundColor: '#fff',
         alignItems: 'center',
-        backgroundColor: '#CCCCCC',
-      }
-});    
+        justifyContent: 'center',
+    },
+});
