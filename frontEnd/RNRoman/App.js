@@ -16,7 +16,6 @@ import Temas from './src/pages/temas';
 import HomePro from './src/pages/homepro';
 import GerenciarProjetos from './src/pages/gerenciarprojetos';
 import CadastrarProjeto from './src/pages/cadastrarprojeto';
-// import { TouchableOpacity } from 'react-native-gesture-handler';
 
 class App extends Component {
 
