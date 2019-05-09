@@ -4,4 +4,4 @@ import {name as appName} from './app.json';
 
 import Cadastrar from './src/pages/cadastrarprojeto'
 
-AppRegistry.registerComponent(appName, () => Cadastrar);
+AppRegistry.registerComponent(appName, () => App);
