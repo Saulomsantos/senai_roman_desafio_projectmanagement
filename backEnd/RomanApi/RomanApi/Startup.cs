@@ -56,13 +56,13 @@ namespace RomanApi
                     //Definindo o tempo de expiração
                     ValidateLifetime = true,
                     //Forma de criptografia
-                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("svigufo-chave-autenticacao")),
+                    IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("roman-chave-autenticacao")),
                     //Tempo de expiração do Token
                     ClockSkew = TimeSpan.FromMinutes(30),
                     //Nome da Issuer, de onde esta vindo
-                    ValidIssuer = "Roman",
+                    ValidIssuer = "roman",
                     //Nome da Audience, de onde esta vindo
-                    ValidAudience = "Roman"
+                    ValidAudience = "roman"
                 };
             });
 
