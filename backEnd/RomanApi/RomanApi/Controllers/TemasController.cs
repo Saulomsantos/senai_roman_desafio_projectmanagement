@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RomanApi.Domains;
 using RomanApi.Interfaces;
 using RomanApi.Repositorys;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace RomanApi.Controllers
 {
+    [Authorize(Roles = "ADMINISTRADOR")]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]

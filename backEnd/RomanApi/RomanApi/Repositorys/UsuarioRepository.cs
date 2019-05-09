@@ -14,14 +14,17 @@ namespace RomanApi.Repositorys
         {
             using (RomanContext ctx = new RomanContext())
             {
-                Usuarios usuarioBuscado = ctx.Usuarios.FirstOrDefault(x => x.Email == login.Email && x.Senha == login.Senha);
+                Usuarios usuarioBuscado = ctx.Usuarios
+                    .Include(u => u.Tipousuario)
+                    .FirstOrDefault(x => x.Email == login.Email && x.Senha == login.Senha);
                 UsuarioViewModel usuario = new UsuarioViewModel()
                 {
                     Id = usuarioBuscado.Id,
                     Email = usuarioBuscado.Email,
                     Nome = usuarioBuscado.Nome,
                     EquipeId = usuarioBuscado.EquipeId,
-                    TipousuarioId = usuarioBuscado.TipousuarioId
+                    TipousuarioId = usuarioBuscado.TipousuarioId,
+                    TipoUsuario = usuarioBuscado.Tipousuario.TipoUsuario
                 };
 
                 return usuario;
