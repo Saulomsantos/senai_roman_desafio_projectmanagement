@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace RomanApi.Controllers
 {
-    [Authorize(Roles = "ADMINISTRADOR")]
+    [Authorize(Roles = "ADMINISTRADOR, PROFESSOR")]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
@@ -23,7 +23,6 @@ namespace RomanApi.Controllers
         {
             TemaRepository = new TemaRepository();
         }
-
 
         // Cadastrar tema
         [HttpPost]

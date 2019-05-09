@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace RomanApi.Controllers
 {
-    [Authorize(Roles = "PROFESSOR")]
+    [Authorize(Roles = "ADMINISTRADOR, PROFESSOR")]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]

@@ -1,0 +1,13 @@
+C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\bin\Release\netcoreapp2.1\RomanApi.deps.json
+C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\bin\Release\netcoreapp2.1\RomanApi.runtimeconfig.json
+C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\bin\Release\netcoreapp2.1\RomanApi.runtimeconfig.dev.json
+C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\bin\Release\netcoreapp2.1\RomanApi.dll
+C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\bin\Release\netcoreapp2.1\RomanApi.pdb
+C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\obj\Release\netcoreapp2.1\RomanApi.csproj.CoreCompileInputs.cache
+C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\obj\Release\netcoreapp2.1\RomanApi.RazorAssemblyInfo.cache
+C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\obj\Release\netcoreapp2.1\RomanApi.RazorAssemblyInfo.cs
+C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\obj\Release\netcoreapp2.1\RomanApi.AssemblyInfoInputs.cache
+C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\obj\Release\netcoreapp2.1\RomanApi.AssemblyInfo.cs
+C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\obj\Release\netcoreapp2.1\RomanApi.RazorTargetAssemblyInfo.cache
+C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\obj\Release\netcoreapp2.1\RomanApi.dll
+C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\obj\Release\netcoreapp2.1\RomanApi.pdb

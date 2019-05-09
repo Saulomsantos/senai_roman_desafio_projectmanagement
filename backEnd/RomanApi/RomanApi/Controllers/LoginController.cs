@@ -34,8 +34,8 @@ namespace RomanApi.Controllers
                 //Define os dados que serão fornecidos no token - PayLoad
                 var claims = new[]
             {
-                    new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.Id.ToString()),
+                    new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
                     new Claim(ClaimTypes.Role, usuarioBuscado.TipoUsuario.ToString()),
                 };
 

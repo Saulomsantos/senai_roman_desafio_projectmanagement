@@ -1,0 +1,517 @@
+{
+	"info": {
+		"_postman_id": "ebadabd6-7341-4079-8b77-d466d908eaaa",
+		"name": "RomanApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Listar todos usuarios",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://romanapp.azurewebsites.net/api/usuarios/todos",
+							"protocol": "https",
+							"host": [
+								"romanapp",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"usuarios",
+								"todos"
+							]
+						},
+						"description": "/api/usuarios/todos"
+					},
+					"response": []
+				},
+				{
+					"name": "Listar professores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://romanapp.azurewebsites.net/api/usuarios/professores",
+							"protocol": "https",
+							"host": [
+								"romanapp",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"usuarios",
+								"professores"
+							]
+						},
+						"description": "/api/usuarios/todos"
+					},
+					"response": []
+				},
+				{
+					"name": "Editar usuario",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 7,\r\n  \"nome\": \"Gabriel\",\r\n  \"email\": \"gabriel@gmail.com\",\r\n  \"senha\": \"12345\",\r\n  \"tipousuarioId\": 2,\r\n  \"equipeid\": 1\r\n}"
+						},
+						"url": {
+							"raw": "https://romanapp.azurewebsites.net/api/usuarios/",
+							"protocol": "https",
+							"host": [
+								"romanapp",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"usuarios",
+								""
+							]
+						},
+						"description": "/api/usuarios/"
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Novo\",\r\n  \"email\": \"novo@email.com\",\r\n  \"senha\": \"12345\",\r\n  \"tipousuarioId\": 2\r\n}"
+						},
+						"url": {
+							"raw": "https://romanapp.azurewebsites.net/api/usuarios/",
+							"protocol": "https",
+							"host": [
+								"romanapp",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"usuarios",
+								""
+							]
+						},
+						"description": "/api/usuarios/"
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar tipo de usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tipoUsuario\": \"string\"\r\n}"
+						},
+						"url": {
+							"raw": "https://romanapp.azurewebsites.net/api/usuarios/tipo",
+							"protocol": "https",
+							"host": [
+								"romanapp",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"usuarios",
+								"tipo"
+							]
+						},
+						"description": "/api/usuarios/tipo"
+					},
+					"response": []
+				},
+				{
+					"name": "Fazer Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"admin@admin.com\",\n\t\"senha\": \"admin12345\"\n}"
+						},
+						"url": {
+							"raw": "https://romanapp.azurewebsites.net/api/login",
+							"protocol": "https",
+							"host": [
+								"romanapp",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						},
+						"description": "/api/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Projetos",
+			"item": [
+				{
+					"name": "Listar projetos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://romanapp.azurewebsites.net/api/projetos",
+							"protocol": "https",
+							"host": [
+								"romanapp",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"projetos"
+							]
+						},
+						"description": "/api/projetos"
+					},
+					"response": []
+				},
+				{
+					"name": "Editar projeto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 4,\r\n  \"nome\": \"Games\",\r\n  \"descricao\": \"Listar games\",\r\n  \"temaId\": 1\r\n}"
+						},
+						"url": {
+							"raw": "https://romanapp.azurewebsites.net/api/projetos/",
+							"protocol": "https",
+							"host": [
+								"romanapp",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"projetos",
+								""
+							]
+						},
+						"description": "/api/projetos/"
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar projeto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"string\",\r\n  \"descricao\": \"string\",\r\n  \"temaId\": 0\r\n}"
+						},
+						"url": {
+							"raw": "https://romanapp.azurewebsites.net/api/projetos/",
+							"protocol": "https",
+							"host": [
+								"romanapp",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"projetos",
+								""
+							]
+						},
+						"description": "/api/projetos/"
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar equipe",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"equipe\": \"string\"\r\n}"
+						},
+						"url": {
+							"raw": "https://romanapp.azurewebsites.net/api/projetos/equipe",
+							"protocol": "https",
+							"host": [
+								"romanapp",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"projetos",
+								"equipe"
+							]
+						},
+						"description": "/api/projetos/equipe"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Temas",
+			"item": [
+				{
+					"name": "Listar temas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://romanapp.azurewebsites.net/api/temas",
+							"protocol": "https",
+							"host": [
+								"romanapp",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"temas"
+							]
+						},
+						"description": "/api/temas"
+					},
+					"response": []
+				},
+				{
+					"name": "Editar tema",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2IiwiZW1haWwiOiJTYXVsb0BlbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQUk9GRVNTT1IiLCJleHAiOjE1NTc0MDA3MDEsImlzcyI6InJvbWFuIiwiYXVkIjoicm9tYW4ifQ.rUt8_IXIZY2Sl2FwXFpFSqn6rInIvVVI74bWcx8xXws",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": 4,\r\n\t\"tema\": \"Livros\"\r\n}"
+						},
+						"url": {
+							"raw": "https://romanapp.azurewebsites.net/api/temas",
+							"protocol": "https",
+							"host": [
+								"romanapp",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"temas"
+							]
+						},
+						"description": "/api/temas"
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar tema",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI2IiwiZW1haWwiOiJTYXVsb0BlbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJQUk9GRVNTT1IiLCJleHAiOjE1NTc0MDA3MDEsImlzcyI6InJvbWFuIiwiYXVkIjoicm9tYW4ifQ.rUt8_IXIZY2Sl2FwXFpFSqn6rInIvVVI74bWcx8xXws",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tema\": \"Livros\"\r\n}"
+						},
+						"url": {
+							"raw": "https://romanapp.azurewebsites.net/api/temas",
+							"protocol": "https",
+							"host": [
+								"romanapp",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"temas"
+							]
+						},
+						"description": "/api/temas"
+					},
+					"response": []
+				},
+				{
+					"name": "Ativar/Desativar temas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBRE1JTklTVFJBRE9SIiwiZXhwIjoxNTU3NDAwNzI4LCJpc3MiOiJyb21hbiIsImF1ZCI6InJvbWFuIn0.mKtV63wBFur-eiRBjz_VvHNSrw5CLZ5q3iHdjhy1Pn4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 5\r\n}"
+						},
+						"url": {
+							"raw": "https://romanapp.azurewebsites.net/api/temas/ativardesativar",
+							"protocol": "https",
+							"host": [
+								"romanapp",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"temas",
+								"ativardesativar"
+							]
+						},
+						"description": "/api/temas/ativardesativar"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
