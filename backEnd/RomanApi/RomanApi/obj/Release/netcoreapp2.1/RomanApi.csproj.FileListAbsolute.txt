@@ -11,3 +11,4 @@ C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\Roma
 C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\obj\Release\netcoreapp2.1\RomanApi.RazorTargetAssemblyInfo.cache
 C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\obj\Release\netcoreapp2.1\RomanApi.dll
 C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\obj\Release\netcoreapp2.1\RomanApi.pdb
+C:\Users\45346351841\Projetos\senai_roman_desafio_projectmanagement\backEnd\RomanApi\RomanApi\obj\Release\netcoreapp2.1\RomanApi.csprojAssemblyReference.cache
