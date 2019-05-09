@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, AsyncStorage, Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { AsyncStorage, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 import api from './src/services/api';
 
@@ -47,13 +47,11 @@ class TelaInicial extends Component {
 
         await AsyncStorage.setItem('userToken', token);
 
-        const value = await AsyncStorage.getItem('userToken');
-
-        if ( jwt(value).Role == 'ADMINISTRADOR' ) {
+        if ( jwt(token).Role == 'ADMINISTRADOR' ) {
             this.props.navigation.navigate('Home - Administrador')            
         }
         else {
-            if ( jwt(value).Role == 'PROFESSOR' ) {
+            if ( jwt(token).Role == 'PROFESSOR' ) {
                 this.props.navigation.navigate('Home - Professor')            
             }
         }       
