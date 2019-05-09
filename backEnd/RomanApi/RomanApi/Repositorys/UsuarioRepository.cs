@@ -40,11 +40,6 @@ namespace RomanApi.Repositorys
             }
         }
 
-        public void CadastrarEquipe(Equipes equipe)
-        {
-            throw new NotImplementedException();
-        }
-
         public void CadastrarUsuario(Usuarios usuario)
         {
             using(RomanContext ctx = new RomanContext())
@@ -146,6 +141,42 @@ namespace RomanApi.Repositorys
                 return usuariosRetornados;
                 //return usuariosBuscados;
 
+            }
+        }
+    
+        public List<Tiposusuario> ListarTiposUsuario() 
+        {
+            using (RomanContext ctx = new RomanContext()) 
+            {
+                return ctx.Tiposusuario.ToList();
+            }
+        }
+
+        public List<Equipes> ListarEquipe()
+        {
+            using(RomanContext ctx = new RomanContext())
+            {
+                return ctx.Equipes.ToList();
+            }
+        }
+
+        public void EditarEquipe(Equipes equipe)
+        {
+            using(RomanContext ctx = new RomanContext())
+            {
+                Equipes equipeUpdate = ctx.Equipes.Find(equipe.Id);
+                equipeUpdate.Equipe = equipe.Equipe;
+                ctx.SaveChanges();
+            }
+        }
+
+        public void EditarTipoUsuario(Tiposusuario tipo)
+        {
+            using(RomanContext ctx = new RomanContext())
+            {
+                Tiposusuario tipoUpdate = ctx.Tiposusuario.Find(tipo.Id);
+                tipoUpdate.TipoUsuario = tipo.TipoUsuario;
+                ctx.SaveChanges();
             }
         }
     }

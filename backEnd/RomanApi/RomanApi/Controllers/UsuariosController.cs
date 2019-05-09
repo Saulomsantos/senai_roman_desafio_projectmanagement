@@ -53,6 +53,20 @@ namespace RomanApi.Controllers
             }
         }
 
+        // Listar equipe
+        [Route("equipe")]
+        [HttpGet]
+        public IActionResult ListarEquipe()
+        {
+            try
+            {
+                return Ok(UsuarioRepository.ListarEquipe());
+            }
+            catch (System.Exception ex)
+            {
+                throw (ex);
+            }
+        }
 
         // Editar usuario
         [HttpPut]
@@ -61,6 +75,22 @@ namespace RomanApi.Controllers
             try
             {
                 UsuarioRepository.Editarusuario(usuario);
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                throw(ex);
+            }
+        }
+
+        // Editar Equipe
+        [Route("equipe")]
+        [HttpPut]
+        public IActionResult EditarEquipe(Equipes equipe)
+        {
+            try
+            {
+                UsuarioRepository.EditarEquipe(equipe);
                 return Ok();
             }
             catch (System.Exception ex)
@@ -93,6 +123,37 @@ namespace RomanApi.Controllers
             {
                 UsuarioRepository.CadastrarTipoUsuario(tipo);
                 return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                throw(ex);
+            }
+        }
+
+        // Editar TipoUsuario
+        [Route("tipo")]
+        [HttpPut]
+        public IActionResult EditarTipoUsuario(Tiposusuario tipo)
+        {
+            try
+            {
+                UsuarioRepository.EditarTipoUsuario(tipo);
+                return Ok();
+            }
+            catch (System.Exception ex)
+            {
+                throw (ex);
+            }
+        }
+
+        // Listar tipo usuario
+        [Route("tipo")]
+        [HttpGet]
+        public IActionResult ListarTipoUsuario()
+        {
+            try
+            {
+                return Ok(UsuarioRepository.ListarTiposUsuario());
             }
             catch (System.Exception ex)
             {

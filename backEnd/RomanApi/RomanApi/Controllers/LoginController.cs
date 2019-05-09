@@ -36,7 +36,7 @@ namespace RomanApi.Controllers
             {
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.Id.ToString()),
                     new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
-                    // new Claim(ClaimTypes.Role, usuarioBuscado.TipoUsuario.ToString()),
+                    new Claim(ClaimTypes.Role, usuarioBuscado.TipoUsuario.ToString()),
                     new Claim("Role", usuarioBuscado.TipoUsuario.ToString()),
                 };
 
