@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import { Button, StyleSheet, View } from 'react-native';
+import { Alert, AsyncStorage, Button, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+
+import api from './src/services/api';
+
+import jwt from "jwt-decode";
 
 import { createSwitchNavigator, createAppContainer, createDrawerNavigator } from 'react-navigation';
 
@@ -12,8 +16,10 @@ import Temas from './src/pages/temas';
 import HomePro from './src/pages/homepro';
 import GerenciarProjetos from './src/pages/gerenciarprojetos';
 import CadastrarProjeto from './src/pages/cadastrarprojeto';
+// import { TouchableOpacity } from 'react-native-gesture-handler';
 
 class App extends Component {
+
     render() {
         return (
             <AppContainer />
@@ -24,15 +30,54 @@ class App extends Component {
 export default App;
 
 class TelaInicial extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { email : '', senha : '' };
+    }
+
+    _realizarLogin = async () => {
+
+        const resposta = await api.post('/login', {
+            email: this.state.email,
+            senha: this.state.senha
+        });
+
+        const token = resposta.data.token;
+
+        await AsyncStorage.setItem('userToken', token);
+
+        const value = await AsyncStorage.getItem('userToken');
+
+        if ( jwt(value).Role == 'ADMINISTRADOR' ) {
+            this.props.navigation.navigate('Home - Administrador')            
+        }
+        else {
+            if ( jwt(value).Role == 'PROFESSOR' ) {
+                this.props.navigation.navigate('Home - Professor')            
+            }
+        }       
+
+    }
+
     render() {
         return (
             <View style={styles.container}>
-                <Button 
-                    title='Ir para Home - Administrador' 
-                    onPress={() => this.props.navigation.navigate('Home - Administrador')}/>
-                <Button 
-                    title='Ir para Home - Professor' 
-                    onPress={() => this.props.navigation.navigate('Home - Professor')}/>
+                <TextInput
+                    placeholder="E-mail"
+                    onChangeText={email => this.setState({ email })} 
+                />
+
+                <TextInput
+                    placeholder="Senha"
+                    onChangeText={senha => this.setState({ senha })} 
+                />
+
+                <TouchableOpacity
+                    onPress={this._realizarLogin}
+                >
+                    <Text>LOGIN</Text>
+                </TouchableOpacity>
             </View>
         )
     }
@@ -44,6 +89,8 @@ const ProDrawerNavigator = createDrawerNavigator({
     'Gerenciar Projetos': GerenciarProjetos,
     'Cadastrar Projeto': CadastrarProjeto,
     Temas: Temas
+},{
+    initialRouteName: 'Home - Professor'
 })
 
 const AdmDrawerNavigator = createDrawerNavigator({
@@ -54,9 +101,12 @@ const AdmDrawerNavigator = createDrawerNavigator({
     'Gerenciar Usuarios': GerenciarUsuarios,
     'Cadastrar Usuario': CadastrarUsuario,
     Temas: Temas
+},{
+    initialRouteName: 'Home - Administrador'
 })
 
 const AppSwitchNavigator = createSwitchNavigator({
+    'Tela inicial': { screen: TelaInicial },
     'Home - Administrador': { screen: AdmDrawerNavigator },
     'Home - Professor': { screen: ProDrawerNavigator }
 })
