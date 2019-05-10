@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AsyncStorage, FlatList, Text, View, StyleSheet } from 'react-native';
+import { AsyncStorage, FlatList, ScrollView, Text, TextInput, TouchableOpacity, View, StyleSheet } from 'react-native';
 
 import api from '../services/api';
 
@@ -9,7 +9,8 @@ class GerenciarTipoUsuario extends Component {
         super(props);
         this.state = {
             listaTiposUsuarios: [],
-            token: ''
+            token: '',
+            tipoUsuario: ''
         }
     }
 
@@ -38,20 +39,56 @@ class GerenciarTipoUsuario extends Component {
         this.setState({ listaTiposUsuarios : dadosDaApi })
     }
 
+    _cadastrarTipoUsuario = async () => {
+
+        await api.post('/usuarios/tipo', {
+                tipoUsuario: this.state.tipoUsuario
+            },
+            {
+                headers: {
+                    'Authorization' : 'Bearer ' + (this.state.token)
+            }
+        });
+
+        this._carregaTiposUsuarios();
+        
+    }
+
     componentDidMount() {
         this._buscarDadosDoStorage();
     }
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={paddingTop= 15}>{"Tipos de Usuários".toUpperCase()}</Text>
-                <FlatList
-                    contentContainerStyle={styles.ConteudoLista}
-                    data={this.state.listaTiposUsuarios}
-                    keyExtractor={item => item.id}
-                    renderItem={this.renderizaItem}
-                />
+            <View style={{ height: 650, justifyContent: 'center' }}>
+                <View style={styles.containerLista}>
+                    <Text style={paddingTop= 15}>{"Tipos de Usuários".toUpperCase()}</Text>
+                    <FlatList
+                        contentContainerStyle={styles.ConteudoLista}
+                        data={this.state.listaTiposUsuarios}
+                        keyExtractor={item => item.id}
+                        renderItem={this.renderizaItem}
+                    />
+                </View>
+
+                <View style={styles.containerCadastro}>
+                    <TextInput
+                        style={{ 
+                            borderRadius: 2, 
+                            borderColor: "#999999", 
+                            borderWidth: 1,
+                            textAlign: 'center'                        
+                        }}
+                        placeholder="tipo usuario"
+                        onChangeText={tipoUsuario => this.setState({ tipoUsuario })} 
+                    />
+
+                    <TouchableOpacity
+                        onPress={this._cadastrarTipoUsuario}
+                    >
+                        <Text>Cadastrar Tipo Usuario</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         )
     }
@@ -68,11 +105,18 @@ class GerenciarTipoUsuario extends Component {
 export default GerenciarTipoUsuario;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
+    containerLista: {
+        flex: 3,
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        paddingBottom: 10
+    },
+    containerCadastro: {
+        flex: 5,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
     },
     // linha de separacao do cabecalho
     mainHeaderLine: {
