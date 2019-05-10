@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, Text, View, StyleSheet } from 'react-native';
+import { AsyncStorage, FlatList, Text, View, StyleSheet } from 'react-native';
 
 import api from '../services/api';
 
@@ -8,23 +8,44 @@ class GerenciarTipoUsuario extends Component {
     constructor(props){
         super(props);
         this.state = {
-            listaTiposUsuarios: []
+            listaTiposUsuarios: [],
+            token: ''
         }
     }
 
-    componentDidMount() {
+    _buscarDadosDoStorage = async () => {
+        try {
+          const value = await AsyncStorage.getItem('userToken');
+          if (value !== null) {
+            this.setState({ token: value });
+          }
+        } catch (error) {}
+
         this._carregaTiposUsuarios();
-    }
+        
+      };
+
 
     _carregaTiposUsuarios = async () => {
-        const resposta = await api.get('/Usuarios/tipo');
+
+        const resposta = await api.get('/Usuarios/tipo', {
+            headers: {
+                'Authorization' : 'Bearer ' + (this.state.token)
+            }
+        }
+        );
         const dadosDaApi = resposta.data;
         this.setState({ listaTiposUsuarios : dadosDaApi })
+    }
+
+    componentDidMount() {
+        this._buscarDadosDoStorage();
     }
 
     render() {
         return (
             <View style={styles.container}>
+                <Text style={paddingTop= 15}>{"Tipos de Usuários".toUpperCase()}</Text>
                 <FlatList
                     contentContainerStyle={styles.ConteudoLista}
                     data={this.state.listaTiposUsuarios}
@@ -38,7 +59,7 @@ class GerenciarTipoUsuario extends Component {
     renderizaItem = ({ item }) => (
         <View style={styles.flatItemSeparador}>
             <View style={styles.flatItemContainer}>
-                <Text style={styles.flatItemLinha}>{item.Id} - {item.TipoUsuario}</Text>
+                <Text style={styles.flatItemLinha}>{item.id} - {item.tipoUsuario}</Text>
             </View>
         </View>
       );
@@ -53,6 +74,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
+    // linha de separacao do cabecalho
+    mainHeaderLine: {
+        width: 170,
+        paddingTop: 10,
+        borderBottomColor: "#999999",
+        borderBottomWidth: 0.9
+    },
     // conteúdo da lista
     ConteudoLista: {
     paddingTop: 30,
@@ -63,6 +91,7 @@ const styles = StyleSheet.create({
     flatItemSeparador: {
     flexDirection: "row",
     borderBottomWidth: 0.9,
-    borderBottomColor: "gray"
+    borderBottomColor: "gray",
+    marginBottom: 10
   },
 });
